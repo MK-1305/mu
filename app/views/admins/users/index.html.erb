@@ -1,0 +1,30 @@
+<div class="admin-users">
+	<h2>会員一覧</h2>
+	<table class="admin_users_index">
+	<thead>
+		<th>会員ID</th>
+		<th>名前</th>
+		<th>メールアドレス</th>
+		<th>会員ステータス</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+				<td><%= user.name %></td>
+				<td><%= user.email %></td>
+				<td>
+					<% if user.is_unsubscribe? %>
+						<span class="text-active">退会済み</span>	
+					<% else %>
+						<span class="text-invalid">有効</span>
+					<% end %>
+				</td>
+				<td><%= link_to "詳細", admins_user_path(user), class: "btn btn-primary" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+	</table>
+	<%= paginate @users %>
+</div>

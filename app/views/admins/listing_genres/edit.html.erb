@@ -1,0 +1,15 @@
+<div class="admin-listing-edit">
+	<h2>ジャンル編集</h2>
+	<div class="mb3">
+		<%= form_for(@listing_genre, url: admins_listing_genre_path) do |f| %>
+		<%= render 'layouts/error_message', resource: @listing_genre %>
+		<%= f.label :name, "ジャンル名:" %>
+		<%= f.text_field :name %>
+		<%= f.radio_button :is_valid, true %>
+		<%= f.label :is_valid, "有効", class: "text-active" %>
+		<%= f.radio_button :is_valid, false %>
+		<%= f.label :is_valid, "無効", class: "text-invalid" %>
+		<%= f.submit "登録する", class: "btn btn-primary ml2" %>
+		<% end %>
+	</div>
+</div>

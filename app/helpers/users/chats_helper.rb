@@ -1,0 +1,2 @@
+module Users::ChatsHelper
+end

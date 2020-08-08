@@ -1,0 +1,46 @@
+<div class="admin-user">
+	<h2><%= @user.name %>さんのページ</h2>
+	<table class="user_info">
+		<thead>
+			<th></th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>会員ID</td>
+				<td><%= @user.id %></td>
+			</tr>
+			<tr>
+				<td>名前</td>
+				<td><%= @user.name %></td>
+			</tr>
+			<tr>
+				<td>メールアドレス</td>
+				<td><%= @user.email %></td>
+			</tr>
+			<tr>
+				<td>出品作品</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>依頼作品</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<% if @user.is_unsubscribe? %>
+						<span class="text-invalid">退会済み</span>
+					<% else %>
+						<span class="text-active">有効</span>
+					<% end %>
+				</td>
+			</tr>
+
+			<tr>
+				<td><%= link_to "編集する", edit_admins_user_path(@user), class: "btn btn-primary" %></td>
+				<td><%= link_to "取引履歴一覧", "" %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

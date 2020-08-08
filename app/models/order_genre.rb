@@ -1,0 +1,2 @@
+class OrderGenre < ApplicationRecord
+end

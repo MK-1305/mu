@@ -1,0 +1,2 @@
+module ListingGenreHelper
+end
