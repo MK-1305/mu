@@ -1,0 +1,35 @@
+<div class="admin-user-edit">
+	<h2><%= @user.name %>さんのページ</h2>
+	<%= form_for(@user, url: admins_user_path(@user)) do |f| %>
+		<table class="user_info edit-form">
+			<thead>
+				<th></th>
+				<th></th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>ニックネーム</td>
+					<td>
+					 <%= f.label :name, "ニックネーム", class: "customer_name" %> <%= f.text_field :name, :placeholder =>"#{@user.name}" %>
+					</td>
+				</tr>
+
+				<tr>
+					<td>メールアドレス</td>
+					<td><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@user.email}" %></td>
+				</tr>
+
+				<tr>
+					<td>会員ステータス</td>
+					<td><%= f.radio_button :is_unsubscribe, false %><%= f.label :is_unsubscribr, "有効", class: "text-active" %></td>
+					<td><%= f.radio_button :is_unsubscribe, true %><%= f.label :is_unsubscribe, "退会済み", class: "text-invalid" %></td>
+				</tr>
+
+				<tr>
+					<td><%= f.submit "更新", class: "btn btn-primary" %></td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+</div>

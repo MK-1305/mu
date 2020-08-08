@@ -1,0 +1,2 @@
+class OrderWork < ApplicationRecord
+end

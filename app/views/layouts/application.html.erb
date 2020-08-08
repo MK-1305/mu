@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mu</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Mu-音楽家にさらなる活躍の場を</title>
   </head>
 
   <body>
-    <%= yield %>
+    <% if admin_signed_in? %>
+      <header class="admin_header">
+        <div class="header-content">
+          <%= link_to 'Mu', admins_users_path, class: "logo" %>
+          <ul class="flex">
+            <li><%= link_to '会員一覧', admins_users_path %></li>
+            <li><%= link_to '注文履歴一覧', admins_orders_path %></li>
+            <li><%= link_to '出品ジャンル管理', admins_listing_genres_path %></li>
+            <li><%= link_to '依頼ジャンル管理', admins_order_genres_path %></li>
+            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </header>
+    <% elsif user_signed_in? %>
+      <header>
+        <div class="header-content">
+          <%= link_to 'Mu', root_path, class: "logo" %>
+          <ul class="flex">
+            <p>ようこそ、<%= current_user.name %>さん!</p>
+            <li><%= link_to 'マイページ', mypage_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </header>
+      <% else %>
+      <header>
+        <div class="header-content">
+          <%= link_to 'Mu', root_path, class: "logo" %>
+          <ul class="flex">
+            <li><%= link_to '新規登録', new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+          </ul>
+        </div>
+      </header>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
+
   </body>
 </html>

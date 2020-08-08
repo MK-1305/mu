@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		<% if flash[:notice] %>
+    	<p class="text-active"><%= flash[:notice] %></p>
+    	<% end %>
+			<h2>マイページ</h2>
+				<table>
+      				<tr>
+       					<td>プロフィール画像・<%= image_tag current_user.profile_image.to_s %></td>
+       					<td>ニックネーム・<%= current_user.name %></td>
+       					<td>メールアドレス・<%= current_user.email %></td>
+      				</tr>
+      				<tr>
+      					<td><%= link_to "編集する", edit_user_path, class: "btn btn-success ml2" %></td>
+      				</tr>
