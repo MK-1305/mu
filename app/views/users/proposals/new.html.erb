@@ -1,0 +1,20 @@
+<div class="proposal-new">
+  <h2>提案文作成</h2>
+  <%= form_for [@order_work, @proposal] do |f| %>
+    <div class="proposal-text">
+      <%= f.label :statement, "提案文" %>
+      <%= f.text_area :statement %>
+    </div>
+    <div class="proposal-text">
+      <%= f.label :term, "可能納期" %>
+      <%= f.text_field :term %>
+    </div>
+    <div class="proposal-text">
+      <%= f.label :price, "提示金額" %>
+      <%= f.text_area :price %>
+    </div>
+    <div class="proposal-actions">
+      <%= f.submit "提案文を送信する", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>

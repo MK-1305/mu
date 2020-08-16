@@ -1,0 +1,52 @@
+<div class="order-edit">
+	<h2>依頼作品編集</h2>
+	<%= form_for(@order_work) do |f| %>
+		<%= render 'layouts/error_message', resource: @order_work %>
+		<div class="flex">
+			<div class="file-field">
+				<%= f.label :file, "ファイル" %>
+				<%= f.file_field :image %>
+			</div>
+			<table class="order-work-form">
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= f.label :name, "商品名" %></td>
+						<td><%= f.text_field :name %></td>
+					</tr>
+					<tr>
+						<td><%= f.label :description, "商品説明" %></td>
+						<td><%= f.text_area :description, rows: 3 %></td>
+					</tr>
+					<tr>
+						<td><%= f.label :order_genre_id, "ジャンル" %></td>
+						<td class="select_field"><%= f.collection_select :order_genre_id, OrderGenre.all, :id, :name %></td>
+					</tr>
+					<tr>
+						<td><%= f.label :price, "商品価格" %></td>
+						<td><%= f.text_field :price %> 円</td>
+					</tr>
+					<tr>
+						<td><%= f.label :is_sales, "公開ステータス" %></td>
+						<td class="select_field">
+							<%= f.radio_button :is_sales, true %>
+							<%= f.label :is_sales, "公開中", class: "text-active" %>
+							<%= f.radio_button :is_sales, false %>
+							<%= f.label :is_sales, "公開停止中", class: "text-invalid" %>
+						</td>
+						<td><%= f.hidden_field :user_id, :value => current_user.id %></td>
+						<td><%= f.hidden_field :id, :value => @order_work.id %></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="flex align-center pl5">
+				<%= f.submit "変更を更新する", data: { confirm: "こちらの内容で変更します。よろしいですか？"}, class: "btn btn-primary" %>
+			</div>
+		</div>
+	<% end %>
+</div>

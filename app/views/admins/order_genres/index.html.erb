@@ -1,0 +1,42 @@
+<div class="admin-order-index">
+	<div class="mb3">
+		<h2>依頼ジャンル一覧</h2>
+		<table class="genre_info has_border">
+			<thead>
+				<tr>
+					<th>ジャンル名</th>
+					<th>状態</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order_genres.each do |genre| %>
+					<tr>
+						<td><%= genre.name %></td>
+						<td>
+							<% if genre.is_valid? %>
+								<span class="text-active">有効</span>
+							<% else %>
+								<span class="text-invalid">無効</span>
+							<% end %>
+						</td>
+						<td class="text-center"><%= link_to "編集", edit_admins_order_genre_path(genre), class: "btn btn-success" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<div class="mb3">
+		<h3>ジャンル新規登録</h3>
+			<%= form_for(@order_genre, url: admins_order_genres_path) do |f| %>
+			<%= render 'layouts/error_message', resource: @order_genre %>
+			<%= f.label :name, "ジャンル名:" %>
+			<%= f.text_field :name %>
+			<%= f.radio_button :is_valid, true %>
+			<%= f.label :is_valid, "有効", class: "text-active" %>
+			<%= f.radio_button :is_valid, false %>
+			<%= f.label :is_valid, "無効", class: "text-invalid" %>
+			<%= f.submit "登録する", class: "btn btn-primary ml2" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,1 +1,48 @@
-あああ
+<!DOCTYPE html>
+<html>
+  <head>
+ 　　  <meta charset="utf-8">
+			<link rel="stylesheet" type="text/css" href="css/slick.scss"/>
+			<link rel="stylesheet" type="text/css" href="css/application.scss"/>
+			<script type="text/javascript" src="js/slick.min.js"></script>
+			<script type="text/javascript" src="js/application.js"></script>
+	</head>
+	<body>
+		<div class="top">
+			<div class="single-item">
+				<div>
+					<img src="1.jpeg" alt="オーディエンス">
+				</div>
+				<div>
+					<img src="2.jpeg" alt="ギター">
+				</div>
+				<div>
+					<img src="3.jpeg" alt="ヘッドホン">
+				</div>
+			</div>
+		</div>
+		<div class="recommend">
+			<h2 class="text">おすすめ商品</h2>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>登録ジャンル一覧</h2>
+					<% @listing_genres.each do |listing| %>
+						<ul>
+							<li><%= link_to listing.name, listing_works_path(listing_genre_id: listing.id) %></li>
+						</ul>
+					<% end %>
+				</div>
+				<div class="col-md-6">
+					<h2>依頼ジャンル一覧</h2>
+					<% @order_genres.each do |order| %>
+						<ul>
+							<li><%= link_to order.name, order_works_path(order_genre_id: order.id) %></li>
+						</ul>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

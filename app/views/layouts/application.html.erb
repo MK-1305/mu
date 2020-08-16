@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>Mu-音楽家にさらなる活躍の場を</title>
   </head>
 
@@ -14,18 +16,21 @@
             <li><%= link_to '注文履歴一覧', admins_orders_path %></li>
             <li><%= link_to '出品ジャンル管理', admins_listing_genres_path %></li>
             <li><%= link_to '依頼ジャンル管理', admins_order_genres_path %></li>
-            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :get %></li>
           </ul>
         </div>
       </header>
     <% elsif user_signed_in? %>
       <header>
         <div class="header-content">
-          <%= link_to 'Mu', root_path, class: "logo" %>
+          <%= link_to root_path do %>
+            <%= image_tag("mu.png", :alt => 'Mu', class: "logo") %>
+          <% end %>
           <ul class="flex">
-            <p>ようこそ、<%= current_user.name %>さん!</p>
             <li><%= link_to 'マイページ', mypage_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to '作品を登録', new_listing_work_path %></li>
+            <li><%= link_to '作品を依頼', new_order_work_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :get %></li>
           </ul>
         </div>
       </header>
