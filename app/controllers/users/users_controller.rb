@@ -1,6 +1,8 @@
 class Users::UsersController < ApplicationController
 
 	def show
+		@listing_works = ListingWork.where(user_id: current_user.id)
+		@order_works = OrderWork.where(user_id: current_user.id)
 	end
 
 	def edit

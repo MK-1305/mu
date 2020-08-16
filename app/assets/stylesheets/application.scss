@@ -15,3 +15,96 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.signup {
+  width: 100%;
+  text-align: center;
+  .actions {
+    padding-top: 30px;
+  }
+}
+
+.login {
+  width: 100%;
+  text-align: center;
+  .actions {
+    padding-top: 10px;
+  }
+}
+
+
+.top {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  background: #419be0;
+}
+
+.slick-slide {
+  text-align: center;
+  color: #419be0;
+  background: white;
+}
+
+header {
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #FFCC99;
+  * {
+    position: relative;
+    z-index: 100;
+  }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 960px;
+    margin: 0 auto;
+    .logo {
+      padding: 10px 20px;
+      font-family: "Century";
+      font-size: 20px;
+      text-decoration: none;
+    }
+    ul {
+      justify-content: flex-end;
+      overflow: hidden;
+      li {
+        list-style: none;
+        float: left;
+        a {
+          display: block;
+          width: 110px;
+          padding: 10px;
+          text-align: center;
+          text-decoration: none;
+          color: #333;
+        }
+      }
+      li:hover {
+        background-color: #66CCCC;
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+body {
+  padding: 120px 0;
+}
+
+.genre-change{
+  padding-top: 50px;
+}
+
+.recommend {
+  margin: 0 auto;
+  .text {
+    padding-left: 135px;
+  }
+}

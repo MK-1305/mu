@@ -1,0 +1,11 @@
+<div class="chat-index">
+  <h2>メッセージ一覧</h2>
+
+  <% @orders.each do |order| %>
+    <table>
+      <tr>
+        <td><%= order.name %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>

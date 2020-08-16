@@ -1,0 +1,29 @@
+<div class="listing_works">
+	<table>
+		<thead>
+			<tr>
+				<td></td>
+				<td>商品名</td>
+				<td>商品説明</td>
+				<td>対応枠</td>
+				<td>料金(手数料抜き)</td>
+			</tr>
+		<tbody>
+			<tr>
+				<td><%= image_tag @listing_work.image.to_s %></td>
+				<td><%= @listing_work.name %></td>
+				<td><%= @listing_work.description %></td>
+				<td>残り<%= @listing_work.count %>枠</td>
+				<td><%= @listing_work.price %>円</td>
+				<td>
+					<% if @listing_work.is_sales? %>
+					<span class="text-active">販売中</span>
+					<%= link_to "購入する", new_order_path(@listing_work), class: "btn btn-primary" %>
+					<% else %>
+					<span class="text-invalid">販売停止中</span>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
