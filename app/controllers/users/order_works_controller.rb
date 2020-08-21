@@ -51,6 +51,6 @@ class Users::OrderWorksController < ApplicationController
 	private
 
   	def order_work_params
-    	params.require(:order_work).permit(:name, :description, :order_genre_id, :price, :is_sales, :user_id, :term)
+    	params.require(:order_work).permit(:name, :description, :order_genre_id, :price, :is_sales, :user_id, :term, :image, :video, :audio)
   	end
 end

@@ -22,12 +22,13 @@ scope module: :users do
  put 'users/unsubscribe' => 'users#confirm', as: 'confirm'
  get 'orders/new/:listing_work_id' => 'orders#new', as: 'new_order'
  get 'orders/thanks' => 'orders#thanks', as: 'thanks'
- get 'order_works/:id/proposal' => 'proposal#new', as: 'new_proposal'
+ get 'order_works/:id/proposal' => 'proposals#new', as: 'new_proposal'
+ get 'users/proposals/index' => 'proposals#index', as: 'proposals'
  resources :listing_works
  resources :orders, only: [:create, :show, :index]
  resources :chats, only: [:index, :show]
  resources :order_works do
-  resources :proposals
+  resources :proposals, only: [:create, :destroy]
  end
 end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

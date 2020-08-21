@@ -1,9 +1,11 @@
 class Users::ProposalsController < ApplicationController
 
   def index
+    @proposals = current_user.proposals.all
   end
 
   def new
+    @proposal = Proposal.new
   end
 
   def create

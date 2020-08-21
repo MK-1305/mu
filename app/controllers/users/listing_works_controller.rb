@@ -54,7 +54,7 @@ class Users::ListingWorksController < ApplicationController
 	private
 
   	def listing_work_params
-    	params.require(:listing_work).permit(:name, :description, :listing_genre_id, :price, :is_sales, :user_id)
+    	params.require(:listing_work).permit(:name, :description, :listing_genre_id, :price, :is_sales, :user_id, :count, :image, :video, :audio)
   	end
 
 

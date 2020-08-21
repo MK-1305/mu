@@ -1,0 +1,26 @@
+<div class="proposal-new">
+<h4>提案文一覧</h4>
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+        <td>ユーザー名</td>
+        <td>提案内容</td>
+        <td>可能納期</td>
+        <td>提示金額</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @proposals.each do |proposal| %>
+          <% proposal.users do |user| %>
+            <td><%= user.name %></td>
+          <% end %>
+        <td><%= proposal.statement %></td>
+        <td><%= proposal.term %></td>
+        <td><%= proposal.price %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

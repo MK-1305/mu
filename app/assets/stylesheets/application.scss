@@ -32,13 +32,31 @@
   }
 }
 
+.logo {
+  width: 30%;
+  height: auto;
+}
+
 
 .top {
   margin: 0 auto;
   padding: 40px;
   width: 80%;
-  color: #333;
-  background: #419be0;
+  .image-1 {
+    margin: 0 auto;
+    width: 30%;
+    height: auto;
+  }
+  .image-2 {
+    margin: 0 auto;
+    width: 30%;
+    height: auto;
+  }
+  .image-3 {
+    margin: 0 auto;
+    width: 30%;
+    height: auto;
+  }
 }
 
 .slick-slide {
@@ -70,6 +88,7 @@ header {
       text-decoration: none;
     }
     ul {
+      padding-top: 30px;
       justify-content: flex-end;
       overflow: hidden;
       li {
@@ -107,4 +126,14 @@ body {
   .text {
     padding-left: 135px;
   }
+}
+
+.listing-new {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.order-new {
+  width: 20%;
+  margin: 0 auto;
 }

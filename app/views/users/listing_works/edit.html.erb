@@ -3,8 +3,12 @@
 		<%= render 'layouts/error_message', resource: @listing_work %>
 		<div class="flex">
 			<div class="file-field">
-				<%= f.label :file, "ファイル" %>
-				<%= f.file_field :image %>
+				<%= f.label :image, "画像ファイル" %>
+				<%= f.file_field :image, :accept => 'image/*' %>
+				<%= f.label :video, "動画ファイル" %>
+				<%= f.file_field :video, :accept => 'video/*' %>
+				<%= f.label :audio, "音声ファイル" %>
+				<%= f.file_field :audio, :accept => 'audio/*' %>
 			</div>
 			<table class="listing-work-form">
 				<thead>
