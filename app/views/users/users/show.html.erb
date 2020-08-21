@@ -27,19 +27,12 @@
       <table>
         <tr>
           <% @listing_works.each do |work| %>
-            <td>
-              <% if params[:image] %>
-                <%= image_tag work.image.to_s %>
-              <% elsif params[:video]  %>
-                <%= link_to work.video_url.to_s do %>
-                <%= image_tag(work.video_url(:screenshot).to_s, id: "video", :alt => "screenshot") %>
-                <% end %>
-              <% else %>
-                <%= work.audio %>
-              <% end %>
-            </td></br>
             <td><%= work.created_at.strftime('%Y/%m/%d') %></td>
-            <td><%= work.name %></td>
+            <td>
+              <%= link_to listing_work_path(work) do %>
+              <%= work.name %>
+              <% end %>
+            </td>
             <td><%= link_to "編集する", edit_listing_work_path(work), class: "btn btn-success ml2" %></td>
           <% end %>
         </tr>
@@ -50,23 +43,28 @@
       <table>
         <tr>
           <% @order_works.each do |work| %>
-            <td>
-              <% if params[:image] %>
-                <%= image_tag work.image.to_s %>
-              <% elsif params[:video]  %>
-                <%= link_to work.video_url.to_s do %>
-                <%= image_tag(work.video_url(:screenshot).to_s, id: "video", :alt => "screenshot") %>
-                <% end %>
-              <% else %>
-                <%= work.audio %>
-              <% end %>
-            </td></br>
             <td><%= work.created_at.strftime('%Y/%m/%d') %></td>
-            <td><%= work.name %></td>
+            <td>
+              <%= link_to order_work_path(work) do %>
+              <%= work.name %>
+              <% end %>
+            </td>
             <td><%= link_to "編集する", edit_order_work_path(work), class: "btn btn-success ml2" %></td>
           <% end %>
         </tr>
       </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to orders_path do %>
+        <h3>購入商品</h3>
+      <% end %>
+      <%= link_to proposals_path do %>
+        <h3>提案一覧</h3>
+      <% end %>
     </div>
   </div>
 </div>

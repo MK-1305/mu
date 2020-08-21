@@ -10,7 +10,17 @@
 			</tr>
 		<tbody>
 			<tr>
-				<td><%= image_tag @listing_work.image.to_s %></td>
+				<td>
+					<% if @listing_work.image? %>
+	          <%= image_tag @listing_work.image.to_s %>
+	        <% elsif @listing_work.video?  %>
+	          <%= link_to @listing_work.video_url.to_s do %>
+	          <%= image_tag(@listing_work.video_url(:screenshot).to_s, id: "video", :alt => "screenshot") %>
+	          <% end %>
+	        <% else %>
+	          <%= @listing_work.audio %>
+	        <% end %>
+	      </td>
 				<td><%= @listing_work.name %></td>
 				<td><%= @listing_work.description %></td>
 				<td>残り<%= @listing_work.count %>枠</td>
