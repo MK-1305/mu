@@ -6,10 +6,7 @@ class Users::OrdersController < ApplicationController
 	end
 
   def order_new
-    @proposal = Proposal.find(params[:id])
-    order = Order.new(order_params)
-    order.save!
-    redirect_to thanks_path
+    order = Order.new
   end
 
 	def create
