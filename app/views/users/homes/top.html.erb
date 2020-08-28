@@ -9,20 +9,17 @@
 	</head>
 	<body>
 		<div class="top">
-			<div class="single-item">
-				<div>
-					<%= image_tag("1.jpeg", :alt => '1', class: "image-1") %>
-				</div>
-				<div>
-					<%= image_tag("2.jpeg", :alt => '2', class: "image-2") %>
-				</div>
-				<div>
-					<%= image_tag("3.jpeg", :alt => '3', class: "image-3") %>
-				</div>
-			</div>
-		</div>
-		<div class="recommend">
-			<h2 class="text">おすすめ商品</h2>
+			<ul class="single-item">
+				<li style="width: 300px; height: 50px;">
+					<%= image_tag("1.jpeg", :alt => '1', class: "image") %>
+				</li>
+				<li style="width: 300px; height: auto;">
+					<%= image_tag("2.jpeg", :alt => '2', class: "image") %>
+				</li>
+				<li style="width: 300px; height: 50px;">
+					<%= image_tag("3.jpeg", :alt => '3', class: "image") %>
+				</li>
+			</ul>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -30,7 +27,9 @@
 					<h2>登録ジャンル一覧</h2>
 					<% @listing_genres.each do |listing| %>
 						<ul>
-							<li><%= link_to listing.name, listing_works_path(listing_genre_id: listing.id) %></li>
+							<li>
+								<%= link_to listing.name, listing_works_path(listing_genre_id: listing.id) %>
+							</li>
 						</ul>
 					<% end %>
 				</div>
@@ -38,7 +37,9 @@
 					<h2>依頼ジャンル一覧</h2>
 					<% @order_genres.each do |order| %>
 						<ul>
-							<li><%= link_to order.name, order_works_path(order_genre_id: order.id) %></li>
+							<li>
+								<%= link_to order.name, order_works_path(order_genre_id: order.id) %>
+							</li>
 						</ul>
 					<% end %>
 				</div>

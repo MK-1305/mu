@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_102708) do
+ActiveRecord::Schema.define(version: 2020_08_27_120108) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_102708) do
     t.integer "listing_genre_id"
     t.string "name"
     t.text "description"
+    t.boolean "is_sales"
     t.integer "count"
     t.integer "price"
     t.string "image"
@@ -50,7 +51,6 @@ ActiveRecord::Schema.define(version: 2020_08_14_102708) do
     t.string "audio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_sales", default: true, null: false
     t.integer "user_id"
   end
 
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2020_08_14_102708) do
 
   create_table "order_works", force: :cascade do |t|
     t.integer "order_genre_id"
-    t.integer "proposal_id"
     t.string "name"
     t.text "description"
     t.boolean "is_sales", default: true, null: false
@@ -87,11 +86,11 @@ ActiveRecord::Schema.define(version: 2020_08_14_102708) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
+    t.boolean "payment_method"
+    t.integer "status"
     t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 0
-    t.integer "payment_method", default: 0, null: false
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -99,9 +98,10 @@ ActiveRecord::Schema.define(version: 2020_08_14_102708) do
     t.string "statement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "order_work_id"
     t.string "term"
     t.integer "price"
+    t.integer "order_work_id"
+    t.index ["order_work_id"], name: "index_proposals_on_order_work_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -123,10 +123,10 @@ ActiveRecord::Schema.define(version: 2020_08_14_102708) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.integer "profile_image"
     t.boolean "is_unsubscribe", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "profile_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

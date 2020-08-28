@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table>
+      <h2 style="border-bottom: 2px solid;"><%= @order_work.name %>の提案文一覧</h2>
+      <% @proposals.each do |proposal| %>
+        <tr>
+          <th>ユーザー名</th>
+          <td><%= proposal.user.name %></td>
+        </tr>
+        <tr>
+          <th>提案内容</th>
+          <td><%= proposal.statement %></td>
+        </tr>
+        <tr>
+          <th>可能納期</th>
+          <td><%= proposal.term %></td>
+        </tr>
+        <tr>
+          <th>提示金額</th>
+          <td><%= proposal.price %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= link_to "承諾する", order_new_path(@order_work), class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

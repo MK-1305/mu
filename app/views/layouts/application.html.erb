@@ -23,7 +23,7 @@
     <% elsif user_signed_in? %>
       <header>
         <div class="header-content">
-          <%= link_to root_path, {:dataturbolinks => :false } do %>
+          <%= link_to root_path, data: {"turbolinks" => false} do %>
             <%= image_tag("mu.png", :alt => 'Mu', class: "logo") %>
           <% end %>
           <ul class="flex">

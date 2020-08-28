@@ -1,29 +1,13 @@
-<div class="container">
+<div class="container" style="width: 80%; margin: 0 auto;">
   <div class="row">
-    <div class="col-md-6">
-      <h2>登録取引一覧</h2>
-      <% @orders.each do |order| %>
-       <table>
-        <tr>
-          <td><%= order.user.name %></td>
-          <td><%= order.listing_works.name %></td>
-        </tr>
-       </table>
-      <% end %>
-      <div class="row">
-        <div class="col-md-6">
-          <h2>依頼取引一覧</h2>
-          <% @orders.each do |order| %>
-            <table>
-              <tr>
-                <td><%= order.user.name %></td>
-                <td><%= order.order_works.name %></td>
-              </tr>
-            </table>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <h2>登録取引一覧</h2>
+    <% @orders.each do |order| %>
+     <table>
+      <tr>
+        <td><%= link_to order.listing_work.name ,listing_work_path(order.listing_work) %></td>
+      </tr>
+     </table>
+    <% end %>
   </div>
 </div>
 

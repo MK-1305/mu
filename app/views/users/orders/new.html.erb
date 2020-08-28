@@ -1,32 +1,29 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 has_border">
+		<div class="col-md-8 has_border" style="width: 80%; margin: 0 auto;">
 			<table>
-				<thead>
 					<tr>
-						<td>商品名</td>
-						<td>商品説明</td>
-						<td>金額(手数料込み)</td>
-					</tr>
-				</thead>
-			</table>
-			<table>
-				<tbody>
-					<tr>
+						<th>商品名</th>
 						<td><%= @listing_work.name %></td>
+					</tr>
+					<tr>
+						<th>商品説明</th>
 						<td><%= @listing_work.description %></td>
+					</tr>
+					<tr>
+						<th>料金(手数料込み)</th>
 						<td><%= @listing_work.price * 1.1.round %></td>
 					</tr>
-				</tbody>
 			</table>
 			<%= form_for(@order, url: orders_path) do |f| %>
-				<div class="field">
+				<div class="field" style="width: 80%; margin: 0 auto;">
 					<h3>支払い方法を選択してください</h3>
 					<%= f.radio_button :payment_method, "credit_card", :checked => true %>
 					<%= f.label :payment_method, "クレジットカード" %>
 					<%= f.radio_button :payment_method, "bank_transfer" %>
 					<%= f.label :payment_method, "銀行振込み" %>
 					<%= f.hidden_field :user_id, value: current_user.id %>
+					<%= f.hidden_field :listing_work_id, value: @listing_work.id %>
 				</div>
 				<div class="actions text-center">
 					<%= f.submit "注文を確定する", class: "btn btn-primary submit_to_create_order" %>

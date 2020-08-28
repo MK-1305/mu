@@ -1,4 +1,5 @@
 class Users::OrderWorksController < ApplicationController
+  protect_from_forgery except: :destroy
 
 	def new
 		@order_work = OrderWork.new
@@ -45,6 +46,9 @@ class Users::OrderWorksController < ApplicationController
 	end
 
 	def destroy
+    @order_work = OrderWork.find(params[:id])
+    @order_work.destroy
+    redirect_to mypage_path
 	end
 
 

@@ -1,7 +1,7 @@
 class Users::ChatsController < ApplicationController
 
   def index
-    @orders = Order.where(id: current_user.order.id)
+    @orders = current_user.orders
   end
 
   def show

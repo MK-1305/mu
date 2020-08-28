@@ -5,65 +5,74 @@
     <p class="text-active"><%= flash[:notice] %></p>
     <% end %>
 			<h2>マイページ</h2>
-			<table>
+			<table style="width: 100%;">
 				<tr>
-          <td>
-   					プロフィール画像
-            <p><%= image_tag current_user.profile_image.to_s %></p>
-   					<p>ニックネーム・<%= current_user.name %></p>
-   					<p>メールアドレス・<%= current_user.email %></p>
-          </td>
-				</tr>
+ 					<th>プロフィール</th>
+          <td><%= image_tag current_user.profile_image.to_s %></td>
+        </tr>
+        <tr>
+          <th>ニックネーム</th>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= current_user.email %></td>
+        </tr>
 				<tr>
+          <th>編集はこちら</th>
 					<td>
               <%= link_to "編集する", edit_user_path, class: "btn btn-success ml2" %>
-              <%= link_to "取引履歴", orders_path, class: "btn btn-primary" %>
           </td>
 				</tr>
       </table>
     </div>
     <div class="col-md-4">
       <h3>登録商品</h3>
+      <% @listing_works.each do |work| %>
       <table>
         <tr>
-          <% @listing_works.each do |work| %>
-            <td><%= work.created_at.strftime('%Y/%m/%d') %></td>
-            <td>
-              <%= link_to listing_work_path(work) do %>
-              <%= work.name %>
-              <% end %>
-            </td>
-            <td><%= link_to "編集する", edit_listing_work_path(work), class: "btn btn-success ml2" %></td>
-          <% end %>
+          <td>
+            <ul>
+              <li>
+                <%= work.created_at.strftime('%Y/%m/%d') %>
+                <%= link_to work.name, listing_work_path(work) %>
+              </li>
+            </ul>
+          </td>
         </tr>
       </table>
+      <% end %>
     </div>
     <div class="col-md-4">
       <h3>依頼作品</h3>
+      <% @order_works.each do |work| %>
       <table>
         <tr>
-          <% @order_works.each do |work| %>
-            <td><%= work.created_at.strftime('%Y/%m/%d') %></td>
-            <td>
-              <%= link_to order_work_path(work) do %>
-              <%= work.name %>
-              <% end %>
-            </td>
-            <td><%= link_to "編集する", edit_order_work_path(work), class: "btn btn-success ml2" %></td>
-          <% end %>
+          <td>
+            <ul>
+              <li>
+                <%= work.created_at.strftime('%Y/%m/%d') %>
+                <%= link_to work.name, order_work_path(work) %>
+              </li>
+            </ul>
+          </td>
         </tr>
       </table>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" style="padding-top: 30px;">
       <%= link_to orders_path do %>
-        <h3>購入商品</h3>
+          <button type="button" class="btn btn-outline-primary">購入商品</button>
       <% end %>
       <%= link_to proposals_path do %>
-        <h3>提案一覧</h3>
+          <button type="button" class="btn btn-outline-warning">提案一覧</button>
+      <% end %>
+      <%= link_to chats_path do %>
+        <button type="button" class="btn btn-outline-warning">チャット一覧</button>
       <% end %>
     </div>
   </div>

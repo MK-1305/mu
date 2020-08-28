@@ -285,6 +285,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
+  ruby-sox
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
