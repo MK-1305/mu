@@ -1,26 +1,23 @@
-<div class="proposal-new">
-<h4>提案文一覧</h4>
+<div class="proposal-new" style="width: 80%; margin: 0 auto;">
+<h2>提案文一覧</h2>
   <table>
-    <thead>
-      <tr>
-        <td></td>
-        <td>ユーザー名</td>
-        <td>提案内容</td>
-        <td>可能納期</td>
-        <td>提示金額</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <% @proposals.each do |proposal| %>
-          <% proposal.users do |user| %>
-            <td><%= user.name %></td>
-          <% end %>
-        <td><%= proposal.statement %></td>
-        <td><%= proposal.term %></td>
-        <td><%= proposal.price %></td>
-        <% end %>
-      </tr>
-    </tbody>
+    <% @proposals.each do |proposal| %>
+    <tr>
+      <th>依頼名</th>
+      <td><%= proposal.order_work.name %></td>
+    </tr>
+    <tr>
+      <th>提案内容</th>
+      <td><%= proposal.statement %></td>
+    </tr>
+    <tr>
+      <th>提案期間</th>
+      <td><%= proposal.term %></td>
+    </tr>
+    <tr>
+      <th>提案料金</th>
+      <td><%= proposal.price %></td>
+    </tr>
+    <% end %>
   </table>
 </div>

@@ -1,8 +1,9 @@
 <div class="listing-edit">
+	<h2>登録作品編集</h2>
 	<%= form_for(@listing_work, url: listing_work_path) do |f| %>
 		<%= render 'layouts/error_message', resource: @listing_work %>
 		<div class="flex">
-			<div class="file-field">
+			<div style="width: 40%; margin: 0 auto; padding-bottom: 20px;">
 				<%= f.label :image, "画像ファイル" %>
 				<%= f.file_field :image, :accept => 'image/*' %>
 				<%= f.label :video, "動画ファイル" %>
@@ -11,42 +12,34 @@
 				<%= f.file_field :audio, :accept => 'audio/*' %>
 			</div>
 			<table class="listing-work-form">
-				<thead>
-					<tr>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><%= f.label :name, "商品名" %></td>
-						<td><%= f.text_field :name %></td>
-					</tr>
-					<tr>
-						<td><%= f.label :description, "商品説明" %></td>
-						<td><%= f.text_area :description, rows: 3 %></td>
-					</tr>
-					<tr>
-						<td><%= f.label :listing_genre_id, "ジャンル" %></td>
-						<td class="select_field"><%= f.collection_select :listing_genre_id, ListingGenre.all, :id, :name %></td>
-					</tr>
-					<tr>
-						<td><%= f.label :price, "商品価格" %></td>
-						<td><%= f.text_field :price %> 円</td>
-					</tr>
-					<tr>
-						<td><%= f.label :is_sales, "公開ステータス" %></td>
-						<td class="select_field">
-							<%= f.radio_button :is_sales, true %>
-							<%= f.label :is_sales, "公開中", class: "text-active" %>
-							<%= f.radio_button :is_sales, false %>
-							<%= f.label :is_sales, "公開停止中", class: "text-invalid" %>
-						</td>
-						<td><%= f.hidden_field :user_id, :value => current_user.id %></td>
-					</tr>
-				</tbody>
+				<tr>
+					<th><%= f.label :name, "商品名" %></th>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :description, "商品説明" %></th>
+					<td><%= f.text_area :description, rows: 3 %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :listing_genre_id, "ジャンル" %></th>
+					<td class="select_field"><%= f.collection_select :listing_genre_id, ListingGenre.all, :id, :name %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :price, "商品価格" %></th>
+					<td><%= f.text_field :price %> 円</td>
+				</tr>
+				<tr>
+					<th><%= f.label :is_sales, "公開ステータス" %></th>
+					<td class="select_field">
+						<%= f.radio_button :is_sales, true %>
+						<%= f.label :is_sales, "公開中", class: "text-active" %>
+						<%= f.radio_button :is_sales, false %>
+						<%= f.label :is_sales, "公開停止中", class: "text-invalid" %>
+					</td>
+				</tr>
+					<%= f.hidden_field :user_id, :value => current_user.id %>
 			</table>
-			<div class="flex align-center pl5">
+			<div style="width: 20%; margin: 0 auto; padding-top: 40px;">
 				<%= f.submit "変更を更新する", data: { confirm: "こちらの内容で変更します。よろしいですか？"}, class: "btn btn-primary" %>
 				<%= link_to "削除する", listing_work_path(@listing_work), method: :delete, "data-confirm" => "削除します。本当によろしいですか？", class: "btn btn-danger" %>
 			</div>

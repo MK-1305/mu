@@ -1,13 +1,13 @@
 class Users::OrdersController < ApplicationController
 
 	def new
+    @listing_work = ListingWork.find(params[:listing_work_id])
 		@order = Order.new
-		@listing_work = ListingWork.find(params[:listing_work_id])
 	end
 
 	def create
 		order = Order.new(order_params)
-		order.save
+		order.save!
 		redirect_to thanks_path
 	end
 
@@ -15,7 +15,7 @@ class Users::OrdersController < ApplicationController
 	end
 
   def index
-      @orders = current_user.orders.page(params[:page]).reverse_order
+    @orders = current_user.orders
   end
 
   def show
@@ -27,4 +27,5 @@ class Users::OrdersController < ApplicationController
   	def order_params
     	params.require(:order).permit(:user_id, :payment_method, :listing_work_id)
   	end
+
 end

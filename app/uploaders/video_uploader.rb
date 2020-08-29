@@ -43,7 +43,7 @@ class VideoUploader < CarrierWave::Uploader::Base
     File.rename(current_path, tmpfile)
 
     movie = FFMPEG::Movie.new(tmpfile)
-    movie.screenshot(current_path + ".jpg", {resolution: '512x312' }, preserve_aspect_ratio: :width)
+    movie.screenshot(current_path + ".jpg", {resolution: '200x100' }, preserve_aspect_ratio: :width)
     File.rename(current_path + ".jpg", current_path)
 
     File.delete(tmpfile)

@@ -4,7 +4,8 @@
   <% @orders.each do |order| %>
     <table>
       <tr>
-        <td><%= order.name %></td>
+        <%= link_to order.listing_work.user.name, chat_path(user.id) %>
+        <%= order.listing_work.name %>
       </tr>
     </table>
   <% end %>

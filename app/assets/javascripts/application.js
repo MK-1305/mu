@@ -19,7 +19,12 @@
 $(function(){
   $('.single-item').slick({
     autoplay: true,
-    autoplaySpeed: 1000,
-    fade: true,
+    autoplaySpeed: 4000,
+    arrows: true,
+    slidesToShow: 1,
+    centerMode: true,
+    centerPadding: '100px',
+    focusOnSelect: true,
+    dots: true,
   });
 });

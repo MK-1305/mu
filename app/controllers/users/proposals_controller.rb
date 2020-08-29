@@ -1,18 +1,23 @@
 class Users::ProposalsController < ApplicationController
 
   def index
-    @proposals = current_user.proposals.all
+    @proposals = current_user.proposals
+  end
+
+  def order_proposal
+    @order_work = OrderWork.find(params[:order_work_id])
+    @proposals = Proposal.where(order_work_id: @order_work.id)
   end
 
   def new
     @proposal = Proposal.new
+    @order_work = OrderWork.find(params[:order_work_id])
   end
 
   def create
     order_work = OrderWork.find(params[:order_work_id])
-    proposal = current_user.proposals.new(proposal_params)
-    proposal.order_work_id = proposal.id
-    proposal.save
+    proposal = Proposal.new(proposal_params)
+    proposal.save!
     redirect_to mypage_path(current_user)
   end
 
@@ -27,6 +32,8 @@ class Users::ProposalsController < ApplicationController
   private
 
     def proposal_params
-      params.require(:proposal).permit(:statement, :term, :price)
+      order_work_id = params[:order_work_id]
+      order_work_id = order_work_id.to_i
+      params.require(:proposal).permit(:statement, :term, :price, :payment_mathod).merge(order_work_id: order_work_id, user_id: current_user.id)
     end
 end

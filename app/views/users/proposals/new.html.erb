@@ -1,19 +1,23 @@
-<div class="proposal-new">
-  <h2>提案文作成</h2>
+<div class="proposal-new" style="width: 60%; margin: 0 auto;">
+  <h2 style="padding-bottom: 20px;"><%= @order_work.name %>の提案文作成</h2>
   <%= form_for [@order_work, @proposal], url: order_work_proposals_path, method: :post do |f| %>
-    <div class="proposal-text">
-      <%= f.label :statement, "提案文" %>
-      <%= f.text_area :statement %>
-    </div>
-    <div class="proposal-text">
-      <%= f.label :term, "可能納期" %>
-      <%= f.date_field :term %>
-    </div>
-    <div class="proposal-text">
-      <%= f.label :price, "提示金額" %>
-      <%= f.text_field :price %>
-    </div>
-    <div class="proposal-actions">
+      <table>
+      <tr>
+        <th><%= f.label :statement, "提案内容" %></th>
+        <td><%= f.text_area :statement %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :term, "可能納期" %></th>
+        <td><%= f.date_field :term %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :price, "提示金額" %></th>
+        <td><%= f.text_field :price %>円</td>
+      </tr>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :order_work_id, value: @order_work.id %>
+      </table>
+    <div style="padding: 50px 350px;">
       <%= f.submit "提案文を送信する", class: "btn btn-primary" %>
     </div>
   <% end %>

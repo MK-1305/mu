@@ -1,0 +1,19 @@
+<div class="container" style="width: 80%; margin: 0 auto;">
+  <div class="row">
+    <div class="col-md-6">
+    <h2>提案承諾一覧</h2>
+      <% @accepts.each do |accept| %>
+        <table>
+          <tr>
+            <th>ユーザー名</th>
+            <td><%= accept.user.name %></td>
+          </tr>
+          <tr>
+            <th>提案内容</th>
+            <td><%= accept.proposal.statement %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

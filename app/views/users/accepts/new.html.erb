@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <h2>提案承諾</h2>
+    <table>
+      <tr>
+        <th>ユーザー名</th>
+        <td><%= @proposal.user.name %></td>
+      </tr>
+      <tr>
+        <th>提案内容</th>
+        <td><%= @proposal.statement %></td>
+      </tr>
+      <tr>
+        <th>可能納期</th>
+        <td><%= @proposal.term %></td>
+      </tr>
+      <tr>
+        <th>提示金額</th>
+        <td><%= @proposal.price %></td>
+      </tr>
+      <tr>
+        <%= form_for(@accept) do |f| %>
+        <th><%= f.label :payment_method, "支払い方法" %></th>
+        <td>
+          <%= f.radio_button :payment_method, "credit_card", :checked => true %>
+          <%= f.label :payment_method, "クレジットカード" %>
+          <%= f.radio_button :payment_method, "bank_transfer" %>
+          <%= f.label :payment_method, "銀行振込み" %>
+        </td>
+      </tr>
+      <tr>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :proposal_id, value: @proposal.id %>
+        <th></th>
+        <td><%= f.submit "提案文を承諾する", class: "btn btn-primary" %></td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>

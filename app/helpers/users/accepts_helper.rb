@@ -1,0 +1,2 @@
+module Users::AcceptsHelper
+end
