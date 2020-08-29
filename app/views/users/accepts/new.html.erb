@@ -19,7 +19,7 @@
         <td><%= @proposal.price %></td>
       </tr>
       <tr>
-        <%= form_for(@order, url: orders_path) do |f| %>
+        <%= form_for(@accept) do |f| %>
         <th><%= f.label :payment_method, "支払い方法" %></th>
         <td>
           <%= f.radio_button :payment_method, "credit_card", :checked => true %>
@@ -27,8 +27,13 @@
           <%= f.radio_button :payment_method, "bank_transfer" %>
           <%= f.label :payment_method, "銀行振込み" %>
         </td>
+      </tr>
+      <tr>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :proposal_id, value: @proposal.id %>
+        <th></th>
+        <td><%= f.submit "提案文を承諾する", class: "btn btn-primary" %></td>
+        <% end %>
       </tr>
     </table>
   </div>

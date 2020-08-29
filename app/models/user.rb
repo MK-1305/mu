@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :chats
   has_many :proposals, dependent: :destroy
+  has_many :accepts
   mount_uploader :profile_image, ImageUploader
 
   def active_for_authentication?

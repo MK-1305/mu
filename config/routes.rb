@@ -26,13 +26,14 @@ scope module: :users do
  get 'order_works/:order_work_id/proposal' => 'proposals#new', as: 'new_proposal'
  get 'users/proposals/index' => 'proposals#index', as: 'proposals'
  get 'order_work/:order_work_id/proposals' => 'proposals#order_proposal', as: 'order_proposals'
- get 'proposal/:proposal_id' => 'orders#order_new', as: 'order_new'
+ get 'proposal/:proposal_id/accept' => 'accepts#new', as: 'new_accept'
  resources :listing_works
  resources :orders, only: [:create, :show, :index]
  resources :chats, only: [:index, :show]
  resources :order_works do
   resources :proposals, only: [:index, :create, :destroy,]
  end
+ resources :accepts, only: [:create, :index, :show]
 end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

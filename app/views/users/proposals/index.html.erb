@@ -1,10 +1,10 @@
 <div class="proposal-new" style="width: 80%; margin: 0 auto;">
-<h4>提案文一覧</h4>
+<h2>提案文一覧</h2>
   <table>
     <% @proposals.each do |proposal| %>
     <tr>
       <th>依頼名</th>
-      <td><%= link_to proposal.order_work.name, order_work_path %></td>
+      <td><%= proposal.order_work.name %></td>
     </tr>
     <tr>
       <th>提案内容</th>

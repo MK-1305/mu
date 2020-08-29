@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_120108) do
+ActiveRecord::Schema.define(version: 2020_08_29_054416) do
+
+  create_table "accepts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "order_work_id"
+    t.integer "proposal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "payment_method", default: false, null: false
+    t.index ["order_work_id"], name: "index_accepts_on_order_work_id"
+    t.index ["proposal_id"], name: "index_accepts_on_proposal_id"
+    t.index ["user_id"], name: "index_accepts_on_user_id"
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,14 +66,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_120108) do
     t.integer "user_id"
   end
 
-  create_table "order_details", force: :cascade do |t|
-    t.integer "work_id"
-    t.integer "order_id"
-    t.integer "status", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "order_genres", force: :cascade do |t|
     t.string "name"
     t.boolean "is_valid", default: true
@@ -91,6 +95,10 @@ ActiveRecord::Schema.define(version: 2020_08_27_120108) do
     t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "proposal_id"
+    t.integer "listing_work_id"
+    t.index ["listing_work_id"], name: "index_orders_on_listing_work_id"
+    t.index ["proposal_id"], name: "index_orders_on_proposal_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -101,6 +109,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_120108) do
     t.string "term"
     t.integer "price"
     t.integer "order_work_id"
+    t.integer "accept_id"
+    t.index ["accept_id"], name: "index_proposals_on_accept_id"
     t.index ["order_work_id"], name: "index_proposals_on_order_work_id"
   end
 

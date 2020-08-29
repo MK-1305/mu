@@ -10,47 +10,39 @@
 				<%= f.label :audio, "音声ファイル" %>
 				<%= f.file_field :audio, :accept => 'audio/*' %>
 			</div>
-			<table class="listing-work-form">
-				<thead>
-					<tr>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><%= f.label :name, "商品名" %></td>
-						<td><%= f.text_field :name %></td>
-					</tr>
-					<tr>
-						<td><%= f.label :description, "商品説明" %></td>
-						<td><%= f.text_area :description, rows: 3 %></td>
-					</tr>
-					<tr>
-						<td><%= f.label :listing_genre_id, "ジャンル" %></td>
-						<td class="select_field"><%= f.collection_select :listing_genre_id, ListingGenre.all, :id, :name %></td>
-					</tr>
-					<tr>
-						<td><%= f.label :count, "対応枠" %></td>
-						<td><%= f.number_field :count,min:1 %></td>
-					</tr>
-					<tr>
-						<td><%= f.label :price, "商品価格" %></td>
-						<td><%= f.text_field :price %> 円</td>
-					</tr>
-					<tr>
-						<td><%= f.label :is_sales, "公開ステータス" %></td>
-						<td class="select_field">
-							<%= f.radio_button :is_sales, true %>
-							<%= f.label :is_sales, "公開中", class: "text-active" %>
-							<%= f.radio_button :is_sales, false %>
-							<%= f.label :is_sales, "公開停止中", class: "text-invalid" %>
-						</td>
-						<td><%= f.hidden_field :user_id, :value => current_user.id %></td>
-					</tr>
-				</tbody>
+			<table class="listing-work-form" style="margin: 30px 0px;">
+				<tr>
+					<th><%= f.label :name, "商品名" %></th>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :description, "商品説明" %></th>
+					<td><%= f.text_area :description, rows: 3 %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :listing_genre_id, "ジャンル" %></th>
+					<td class="select_field"><%= f.collection_select :listing_genre_id, ListingGenre.all, :id, :name %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :count, "対応枠" %></th>
+					<td><%= f.number_field :count,min:1 %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :price, "商品価格" %></th>
+					<td><%= f.text_field :price %> 円</td>
+				</tr>
+				<tr>
+					<th><%= f.label :is_sales, "公開ステータス" %></th>
+					<td class="select_field">
+						<%= f.radio_button :is_sales, true, :checked => true %>
+						<%= f.label :is_sales, "公開中", class: "text-active"%>
+						<%= f.radio_button :is_sales, false %>
+						<%= f.label :is_sales, "公開停止中", class: "text-invalid" %>
+					</td>
+					<%= f.hidden_field :user_id, :value => current_user.id %>
+				</tr>
 			</table>
-			<div class="flex align-center pl5">
+			<div>
 				<%= f.submit "登録する", data: { confirm: "こちらの内容で登録します。よろしいですか？"}, class: "btn btn-primary" %>
 			</div>
 		</div>

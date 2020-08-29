@@ -10,7 +10,9 @@
     <% if admin_signed_in? %>
       <header class="admin_header">
         <div class="header-content">
-          <%= link_to 'Mu', admins_users_path, class: "logo" %>
+          <%= link_to root_path, data: {"turbolinks" => false} do %>
+            <%= image_tag("mu.png", :alt => 'Mu', class: "logo") %>
+          <% end %>
           <ul class="flex">
             <li><%= link_to '会員一覧', admins_users_path %></li>
             <li><%= link_to '注文履歴一覧', admins_orders_path %></li>
@@ -37,7 +39,9 @@
       <% else %>
       <header>
         <div class="header-content">
-          <%= link_to 'Mu', root_path, class: "logo" %>
+          <%= link_to root_path, data: {"turbolinks" => false} do %>
+            <%= image_tag("mu.png", :alt => 'Mu', class: "logo") %>
+          <% end %>
           <ul class="flex">
             <li><%= link_to '新規登録', new_user_registration_path %></li>
             <li><%= link_to 'ログイン', new_user_session_path %></li>
