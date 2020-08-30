@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_054416) do
+ActiveRecord::Schema.define(version: 2020_08_29_091939) do
 
   create_table "accepts", force: :cascade do |t|
     t.integer "user_id"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_054416) do
     t.integer "proposal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "payment_method", default: false, null: false
+    t.integer "payment_method"
     t.index ["order_work_id"], name: "index_accepts_on_order_work_id"
     t.index ["proposal_id"], name: "index_accepts_on_proposal_id"
     t.index ["user_id"], name: "index_accepts_on_user_id"
