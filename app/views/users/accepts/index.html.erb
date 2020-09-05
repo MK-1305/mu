@@ -9,8 +9,16 @@
             <td><%= accept.user.name %></td>
           </tr>
           <tr>
+            <th>メールアドレス</th>
+            <td><%= accept.user.email %></td>
+          </tr>
+          <tr>
             <th>提案内容</th>
             <td><%= accept.proposal.statement %></td>
+          </tr>
+          <tr>
+            <th>納期</th>
+            <td><%= accept.proposal.term %></td>
           </tr>
         </table>
       <% end %>

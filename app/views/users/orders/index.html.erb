@@ -1,11 +1,16 @@
 <div class="container" style="width: 80%; margin: 0 auto;">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
     <h2>登録取引一覧</h2>
       <% @orders.each do |order| %>
        <table>
         <tr>
+          <th>購入した商品</th>
           <td><%= link_to order.listing_work.name, listing_work_path(order.listing_work) %></td>
+        </tr>
+        <tr>
+          <th>メールで取引を始めよう！</th>
+          <td><%= order.listing_work.user.email %></td>
         </tr>
        </table>
       <% end %>
