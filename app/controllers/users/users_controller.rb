@@ -1,4 +1,5 @@
 class Users::UsersController < ApplicationController
+	protect_from_forgery
 
 	def show
 		@listing_works = ListingWork.where(user_id: current_user.id)
@@ -22,7 +23,8 @@ class Users::UsersController < ApplicationController
 	end
 
 	def confirm
-		@user.update(is_unsubscribe: true)
+		user = User.find(params[:user_id])
+		user.update(is_unsubscribe: true)
 	    reset_session
 	    redirect_to root_path, notice: '退会処理が完了しました。'
 	end
@@ -30,6 +32,6 @@ class Users::UsersController < ApplicationController
 	private
 
   	def user_params
-    	params.require(:user).permit(:name, :email, :profile_image)
+    	params.require(:user).permit(:name, :email, :profile_image, :is_unsubscribe)
   	end
 end
