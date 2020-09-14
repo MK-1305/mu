@@ -33,19 +33,21 @@
       </tr>
       <tr>
         <th>ステータス</th>
+        <% if user_signed_in? %>
         <td>
           <% if @order_work.user == current_user %>
-          <%= link_to "編集する", edit_order_work_path(@order_work), class: "btn btn-success ml2" %>
-          <%= link_to "提案文一覧", order_proposals_path(@order_work.id), class: "btn btn-danger" %>
+            <%= link_to "編集する", edit_order_work_path(@order_work), class: "btn btn-success ml2" %>
+            <%= link_to "提案文一覧", order_proposals_path(@order_work.id), class: "btn btn-danger" %>
           <% else %>
             <% if @order_work.is_sales? %>
             <span class="text-active">公開中</span>
-            <%= link_to "提案する", new_proposal_path(@order_work), class: "btn btn-primary" %>
+              <%= link_to "提案する", new_proposal_path(@order_work), class: "btn btn-primary" %>
             <% else %>
-            <span class="text-invalid">公開停止中</span>
+              <span class="text-invalid">公開停止中</span>
             <% end %>
           <% end %>
         </td>
+        <% end %>
       </tr>
     </tbody>
   </table>

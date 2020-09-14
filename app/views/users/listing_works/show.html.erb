@@ -28,6 +28,7 @@
 		</tr>
 		<tr>
 			<th>ステータス</th>
+			<% if user_signed_in? %>
 			<td>
 				<% if @listing_work.user == current_user %>
 				<%= link_to "編集する", edit_listing_work_path(@listing_work), class: "btn btn-success ml2" %>
@@ -40,6 +41,7 @@
 					<% end %>
 				<% end %>
 			</td>
+			<% end %>
 		</tr>
 	</table>
 </div>
