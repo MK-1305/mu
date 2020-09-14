@@ -8,7 +8,13 @@
 			<table style="width: 100%;">
 				<tr>
  					<th>プロフィール</th>
-          <td><%= image_tag current_user.profile_image.to_s %></td>
+          <td>
+            <% if current_user.profile_image? %>
+              <img src='<%= current_user.profile_image %>' class="icon" alt="ユーザーアイコン">
+            <% else %>
+              <image src="/assets/no_image.png" class="icon" alt="ユーザーアイコン" %>
+            <% end %>
+          </td>
         </tr>
         <tr>
           <th>ニックネーム</th>
