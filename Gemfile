@@ -65,7 +65,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'carrierwave'
-gem 'fog'
+gem 'fog-aws'
 gem 'mini_magick'
 gem 'carrierwave-audio'
 gem 'streamio-ffmpeg'
