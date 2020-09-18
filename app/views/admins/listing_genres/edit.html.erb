@@ -2,7 +2,7 @@
 	<h2>ジャンル編集</h2>
 	<div class="mb3">
 		<%= form_for(@listing_genre, url: admins_listing_genre_path) do |f| %>
-		<%= render 'layouts/error_message', resource: @listing_genre %>
+		<%= render 'layouts/error_message', model: f.object %>
 		<%= f.label :name, "ジャンル名:" %>
 		<%= f.text_field :name %>
 		<%= f.radio_button :is_valid, true %>
