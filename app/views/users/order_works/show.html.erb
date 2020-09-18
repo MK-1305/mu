@@ -11,7 +11,7 @@
             <%= image_tag(@order_work.video_url(:screenshot).to_s, id: "video", :alt => "screenshot") %>
             <% end %>
           <% else %>
-            <%= @order_work.audio %>
+            <%= audio_tag(@order_work.audio, :controls => true) %>
           <% end %>
         </td>
       </tr>

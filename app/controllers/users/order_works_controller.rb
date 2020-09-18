@@ -6,9 +6,12 @@ class Users::OrderWorksController < ApplicationController
 	end
 
 	def create
-		order_work = OrderWork.new(order_work_params)
-		order_work.save!
-		redirect_to mypage_path(current_user)
+		@order_work = OrderWork.new(order_work_params)
+		if @order_work.save
+		   redirect_to mypage_path(current_user)
+    else
+      render action: :new
+    end
 	end
 
   def show
