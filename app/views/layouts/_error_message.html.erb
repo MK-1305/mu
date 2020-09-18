@@ -1,8 +1,11 @@
-<% if resource.errors.any? %>
+<% if model.errors.any? %>
   <div id="error_explanation">
-    <h2>エラーが発生しました。以下ご確認お願いいたします。</h2>
+    <h4>
+    	<p>エラーが発生しました。</p>
+    	<p>以下ご確認お願いします。</p>
+    </h4>
     <ul>
-      <% resource.errors.full_messages.each do |message| %>
+      <% model.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>

@@ -6,9 +6,12 @@ class Users::ListingWorksController < ApplicationController
 	end
 
 	def create
-		listing_work = ListingWork.new(listing_work_params)
-		listing_work.save!
-		redirect_to mypage_path(current_user)
+		@listing_work = ListingWork.new(listing_work_params)
+		if @listing_work.save
+		   redirect_to mypage_path(current_user)
+		else
+			render action: :new
+		end
 	end
 
 	def show
@@ -21,15 +24,15 @@ class Users::ListingWorksController < ApplicationController
 
 	def update
 		@listing_work = ListingWork.find(params[:id])
-    respond_to do |format|
-      if @listing_work.update(listing_work_params) && @listing_work.video.recreate_versions!
-        format.html { redirect_to mypage_path, notice: '登録商品を更新しました' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @listing_work.errors, status: :unprocessable_entity }
-      end
-    end
+    	respond_to do |format|
+      		if @listing_work.update(listing_work_params) && @listing_work.video.recreate_versions!
+        		format.html { redirect_to mypage_path, notice: '登録商品を更新しました' }
+        		format.json { head :no_content }
+      		else
+        		format.html { render action: 'edit' }
+        		format.json { render json: @listing_work.errors, status: :unprocessable_entity }
+      		end
+    	end
 	end
 
 	def index

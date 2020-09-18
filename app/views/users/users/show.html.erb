@@ -10,7 +10,7 @@
  					<th>プロフィール</th>
           <td>
             <% if current_user.profile_image? %>
-              <img src='<%= current_user.profile_image %>' class="icon" alt="ユーザーアイコン">
+              <%= image_tag current_user.profile_image.to_s %>
             <% else %>
               <%= image_tag asset_path("no_image.png", alt: "ユーザーアイコン") %>
             <% end %>

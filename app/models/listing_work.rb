@@ -1,6 +1,6 @@
 class ListingWork < ApplicationRecord
-	belongs_to :listing_genre
-	belongs_to :user
+  belongs_to :listing_genre
+  belongs_to :user
   has_one :order
 
   mount_uploader :image, ImageUploader

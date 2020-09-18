@@ -1,6 +1,6 @@
 <div class="listing-new">
 	<%= form_for(@listing_work, url: listing_works_path) do |f| %>
-		<%= render 'layouts/error_message', resource: @listing_work %>
+		<%= render 'layouts/error_message', model: f.object %>
 		<div class="flex">
 			<div class="file-field">
 				<%= f.label :image, "画像ファイル" %>

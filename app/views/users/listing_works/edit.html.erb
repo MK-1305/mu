@@ -1,9 +1,8 @@
 <div class="listing-edit">
 	<h2>登録作品編集</h2>
 	<%= form_for(@listing_work, url: listing_work_path) do |f| %>
-		<%= render 'layouts/error_message', resource: @listing_work %>
-		<div class="flex">
 			<div style="width: 40%; margin: 0 auto; padding-bottom: 20px;">
+			<%= render 'layouts/error_message', model: f.object %>
 				<%= f.label :image, "画像ファイル" %>
 				<%= f.file_field :image, :accept => 'image/*' %>
 				<%= f.label :video, "動画ファイル" %>

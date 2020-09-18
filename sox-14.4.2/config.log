@@ -341,7 +341,7 @@ configure:11541: checking how to hardcode library paths into programs
 configure:11566: result: immediate
 configure:11660: checking for shl_load
 configure:11660: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccvIIncQ.o: In function `main':
+/tmp/ccTtvZeA.o: In function `main':
 /home/vagrant/work/mu/sox-14.4.2/conftest.c:57: undefined reference to `shl_load'
 collect2: error: ld returned 1 exit status
 configure:11660: $? = 1
@@ -453,7 +453,7 @@ configure: failed program was:
 configure:11698: result: no
 configure:11703: checking for dlopen
 configure:11703: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccR1cSvc.o: In function `main':
+/tmp/ccODEooI.o: In function `main':
 /home/vagrant/work/mu/sox-14.4.2/conftest.c:57: undefined reference to `dlopen'
 collect2: error: ld returned 1 exit status
 configure:11703: $? = 1
@@ -875,7 +875,7 @@ conftest.c:50:6: warning: conflicting types for built-in function 'pow' [enabled
 conftest.c:52:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp/ccbeGf9W.o: In function `main':
+/tmp/ccThSyaR.o: In function `main':
 /home/vagrant/work/mu/sox-14.4.2/conftest.c:54: undefined reference to `pow'
 collect2: error: ld returned 1 exit status
 configure:13061: $? = 1
@@ -4793,6 +4793,7 @@ config.status:1286: creating msvc9/Makefile
 config.status:1286: creating msvc10/Makefile
 config.status:1286: creating sox.pc
 config.status:1286: creating src/soxconfig.h
+config.status:1467: src/soxconfig.h is unchanged
 config.status:1515: executing depfiles commands
 config.status:1515: executing libtool commands
 
