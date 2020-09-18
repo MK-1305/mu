@@ -7,6 +7,7 @@ unless Rails.env.development? || Rails.env.test?
       region: 'ap-northeast-1'
     }
 
+    config.fog_provider = 'fog-aws'
     config.fog_directory  = 'mu-file-s3'
     config.cache_storage = :fog
   end
