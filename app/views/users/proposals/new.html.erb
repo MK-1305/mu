@@ -1,6 +1,7 @@
 <div class="proposal-new" style="width: 60%; margin: 0 auto;">
   <h2 style="padding-bottom: 20px;"><%= @order_work.name %>の提案文作成</h2>
   <%= form_for [@order_work, @proposal], url: order_work_proposals_path, method: :post do |f| %>
+  <%= render 'layouts/error_message', model: f.object %>
       <table>
       <tr>
         <th><%= f.label :statement, "提案内容" %></th>

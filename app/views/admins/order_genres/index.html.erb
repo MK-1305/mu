@@ -28,7 +28,7 @@
 		<div class="mb3">
 		<h3>ジャンル新規登録</h3>
 			<%= form_for(@order_genre, url: admins_order_genres_path) do |f| %>
-			<%= render 'layouts/error_message', resource: @order_genre %>
+			<%= render 'layouts/error_message', model: f.object %>
 			<%= f.label :name, "ジャンル名:" %>
 			<%= f.text_field :name %>
 			<%= f.radio_button :is_valid, true %>
