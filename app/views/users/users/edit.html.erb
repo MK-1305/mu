@@ -12,7 +12,7 @@
 		</tr>
 		<tr>
 			<th>プロフィール画像</th>
-			<td><%= f.file_field :profile_image %></td>
+			<td><%= f.file_field :profile_image, :accept => 'image/*' %></td>
 		</tr>
 		<tr>
 			<td><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></td>
