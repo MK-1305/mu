@@ -1,0 +1,28 @@
+Determining if the function wsyncup exists in the /usr/lib64/libcurses.so passed with the following output:
+Change Dir: /home/ec2-user/mu/cmake-3.17.2/Source/Checks/Curses-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f8b89/fast && gmake  -f CMakeFiles/cmTC_f8b89.dir/build.make CMakeFiles/cmTC_f8b89.dir/build
+gmake[1]: ディレクトリ `/home/ec2-user/mu/cmake-3.17.2/Source/Checks/Curses-build/CMakeFiles/CMakeTmp' に入ります
+Building C object CMakeFiles/cmTC_f8b89.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=wsyncup   -o CMakeFiles/cmTC_f8b89.dir/CheckFunctionExists.c.o   -c /home/ec2-user/mu/cmake-3.17.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f8b89
+/home/ec2-user/mu/cmake-3.17.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_f8b89.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=wsyncup    -rdynamic CMakeFiles/cmTC_f8b89.dir/CheckFunctionExists.c.o  -o cmTC_f8b89  -lcurses 
+gmake[1]: ディレクトリ `/home/ec2-user/mu/cmake-3.17.2/Source/Checks/Curses-build/CMakeFiles/CMakeTmp' から出ます
+
+
+
+Determining if the function cbreak exists in the /usr/lib64/libncurses.so passed with the following output:
+Change Dir: /home/ec2-user/mu/cmake-3.17.2/Source/Checks/Curses-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_56146/fast && gmake  -f CMakeFiles/cmTC_56146.dir/build.make CMakeFiles/cmTC_56146.dir/build
+gmake[1]: ディレクトリ `/home/ec2-user/mu/cmake-3.17.2/Source/Checks/Curses-build/CMakeFiles/CMakeTmp' に入ります
+Building C object CMakeFiles/cmTC_56146.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=cbreak   -o CMakeFiles/cmTC_56146.dir/CheckFunctionExists.c.o   -c /home/ec2-user/mu/cmake-3.17.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_56146
+/home/ec2-user/mu/cmake-3.17.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_56146.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=cbreak    -rdynamic CMakeFiles/cmTC_56146.dir/CheckFunctionExists.c.o  -o cmTC_56146  -lncurses 
+gmake[1]: ディレクトリ `/home/ec2-user/mu/cmake-3.17.2/Source/Checks/Curses-build/CMakeFiles/CMakeTmp' から出ます
+
+
+

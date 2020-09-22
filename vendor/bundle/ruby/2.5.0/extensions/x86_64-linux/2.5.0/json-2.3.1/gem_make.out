@@ -1,0 +1,13 @@
+current directory: /home/ec2-user/mu/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+/home/ec2-user/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20200918-28365-1ej69q2.rb extconf.rb
+creating Makefile
+
+current directory: /home/ec2-user/mu/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/ec2-user/mu/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+make "DESTDIR="
+make: `all' に対して行うべき事はありません.
+
+current directory: /home/ec2-user/mu/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+make "DESTDIR=" install
