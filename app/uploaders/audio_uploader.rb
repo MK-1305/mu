@@ -13,11 +13,11 @@ class AudioUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :wav do
-    process :convert => [{output_format: :wav}]
+  version :mp3 do
+    process :convert => [{output_format: :mp3}]
 
     def full_filename(for_file)
-      "#{super.chomp(File.extname(super))}.wav"
+      "#{super.chomp(File.extname(super))}.mp3"
     end
   end
 
