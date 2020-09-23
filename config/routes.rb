@@ -27,6 +27,7 @@ scope module: :users do
  get 'users/proposals/index' => 'proposals#index', as: 'proposals'
  get 'order_work/:order_work_id/proposals' => 'proposals#order_proposal', as: 'order_proposals'
  get 'proposal/:proposal_id/accept' => 'accepts#new', as: 'new_accept'
+ get 'accept/thanks' => 'accepts#thanks'
  resources :listing_works
  resources :orders, only: [:create, :show, :index]
  resources :chats, only: [:index, :show]

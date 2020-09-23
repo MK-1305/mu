@@ -8,7 +8,7 @@ class Users::AcceptsController < ApplicationController
   def create
     accept = Accept.new(accept_params)
     accept.save!
-    redirect_to thanks_path
+    redirect_to accept_thanks_path
   end
 
   def index
@@ -17,6 +17,9 @@ class Users::AcceptsController < ApplicationController
 
   def show
     @accept = Accept.find(params[:id])
+  end
+
+  def thanks
   end
 
   private
