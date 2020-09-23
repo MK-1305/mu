@@ -14,12 +14,18 @@
 				<td><%= @user.email %></td>
 			</tr>
 			<tr>
+			<% @listing_works.each do |listing| %>
 				<th>出品作品</th>
-				<td></td>
+				<td><%= link_to listing.name, listing_work_path(listing) %></td>
+			<% end %>
 			</tr>
 			<tr>
 				<th>依頼作品</th>
-				<td></td>
+				<% @order_works.each do |order| %>
+				<td>
+					<%= link_to order.name, order_work_path(order) %><br>
+				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>ステータス</th>

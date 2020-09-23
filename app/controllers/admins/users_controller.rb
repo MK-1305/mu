@@ -7,6 +7,8 @@ class Admins::UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@listing_works = ListingWork.where(user_id: @user.id)
+		@order_works = OrderWork.where(user_id: @user.id)
 	end
 
 	def edit
