@@ -73,8 +73,11 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem 'ruby-sox'
+gem 'dotenv-rails', groups: [:production, :development]
 
-gem 'dotenv-rails'
+group :production, :development do
+  gem 'dotenv-rails', groups: [:production, :development]
+end
 group :production do
   gem 'mysql2'
 end
