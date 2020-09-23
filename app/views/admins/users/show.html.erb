@@ -14,10 +14,12 @@
 				<td><%= @user.email %></td>
 			</tr>
 			<tr>
-			<% @listing_works.each do |listing| %>
 				<th>出品作品</th>
-				<td><%= link_to listing.name, listing_work_path(listing) %></td>
-			<% end %>
+				<% @listing_works.each do |listing| %>
+					<td>
+						<%= link_to listing.name, listing_work_path(listing) %><br>
+					</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>依頼作品</th>
