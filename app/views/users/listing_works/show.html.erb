@@ -4,13 +4,13 @@
 			<th>ファイル</th>
 			<td>
 				<% if @listing_work.image? %>
-          			<%= image_tag @listing_work.image_url.to_s %>
+          			<%= image_tag @listing_work.image.url %>
         		<% elsif @listing_work.video?  %>
-          			<%= link_to @listing_work.video_url.to_s do %>
+          			<%= link_to @listing_work.video_url do %>
           				<%= image_tag(@listing_work.video_url(:screenshot).to_s, id: "video", :alt => "screenshot") %>
           			<% end %>
         		<% else %>
-          			<%= audio_tag(@listing_work.audio_url, :controls => true) %>
+          			<%= audio_tag(@listing_work.audio.url, :controls => true) %>
        			 <% end %>
       		</td>
    		 </tr>
