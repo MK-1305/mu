@@ -79,5 +79,6 @@ group :production, :development do
   gem 'dotenv-rails', groups: [:production, :development]
 end
 group :production do
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'mysql2'
 end
