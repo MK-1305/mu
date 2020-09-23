@@ -1,7 +1,7 @@
 <div class="order-edit">
 	<h2>依頼作品編集</h2>
 	<%= form_for(@order_work) do |f| %>
-		<%= render 'layouts/error_message', resource: @order_work %>
+		<%= render 'layouts/error_message', model: f.object %>
 		<div class="flex">
 			<div style="width: 40%; margin: 0 auto; padding-bottom: 20px;">
 				<%= f.label :image, "画像ファイル" %>

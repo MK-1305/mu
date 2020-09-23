@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ImageUploader
 
+  validates :name, presence: true
+
   def active_for_authentication?
     super && (self.is_unsubscribe == false)
   end
