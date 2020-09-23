@@ -1,6 +1,7 @@
 <div class="user_edit" style="width: 40%; margin: 0 auto;">
 <h2>登録情報編集</h2>
 	<%= form_for(@user, url: update_user_path) do |f| %>
+	<%= render 'layouts/error_message', model: f.object %>
 	<table>
 		<tr>
 			<th>ニックネーム</th>
