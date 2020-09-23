@@ -10,7 +10,7 @@
  					<th>プロフィール</th>
           <td>
             <% if current_user.profile_image? %>
-              <%= image_tag current_user.profile_image_url.to_s %>
+              <%= image_tag current_user.profile_image.url %>
             <% else %>
               <%= image_tag asset_path("no_image.png", :alt => 'プロフィール') %>
             <% end %>
