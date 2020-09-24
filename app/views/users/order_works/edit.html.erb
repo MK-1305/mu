@@ -1,15 +1,8 @@
 <div class="order-edit">
 	<h2>依頼作品編集</h2>
 	<%= form_for(@order_work) do |f| %>
-		<%= render 'layouts/error_message', model: f.object %>
-		<div class="flex">
 			<div style="width: 40%; margin: 0 auto; padding-bottom: 20px;">
-				<%= f.label :image, "画像ファイル" %>
-				<%= f.file_field :image, :accept => 'image/*' %>
-				<%= f.label :video, "動画ファイル" %>
-				<%= f.file_field :video, :accept => 'video/*' %>
-				<%= f.label :audio, "音声ファイル" %>
-				<%= f.file_field :audio, :accept => 'audio/*' %>
+				<%= render 'layouts/error_message', model: f.object %>
 			</div>
 			<table class="order-work-form">
 				<tr>
@@ -39,7 +32,7 @@
 				</tr>
 					<%= f.hidden_field :user_id, :value => current_user.id %>
 					<%= f.hidden_field :id, :value => @order_work.id %>
-		</table>
+			</table>
 			<div style="width: 20%; margin: 0 auto; padding-top: 40px;">
 				<%= f.submit "変更を更新する", data: { confirm: "こちらの内容で変更します。よろしいですか？"}, class: "btn btn-primary" %>
 				<%= link_to "削除する", order_work_path(@order_work), method: :delete, "data-confirm" => "削除します。本当によろしいですか？", class: "btn btn-danger" %>
