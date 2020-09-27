@@ -3,8 +3,7 @@ class User < ApplicationRecord
   has_many :order_works
   has_many :orders
   has_many :user_rooms
-  has_many :chats
-  has_many :rooms, through: :user_rooms
+  has_many :messages
   has_many :proposals, dependent: :destroy
   has_many :accepts
 

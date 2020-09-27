@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   devise_for :admins, :controllers => {
   :sessions => 'admins/sessions'
 }
