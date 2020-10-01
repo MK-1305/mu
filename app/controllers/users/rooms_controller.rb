@@ -1,5 +1,6 @@
 class Users::RoomsController < ApplicationController
 	before_action :authenticate_user!
+  protect_from_forgery except: :create
 
   def index
     @rooms = Room.all
