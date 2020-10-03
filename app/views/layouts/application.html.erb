@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> 
   <head>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,6 +15,7 @@
           <% end %>
           <ul class="flex">
             <li><%= link_to '会員一覧', admins_users_path %></li>
+            <li><%= link_to '問い合わせ一覧', admins_contacts_path %></li>
             <li><%= link_to '出品ジャンル管理', admins_listing_genres_path %></li>
             <li><%= link_to '依頼ジャンル管理', admins_order_genres_path %></li>
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :get %></li>
@@ -29,6 +30,7 @@
           <% end %>
           <ul class="flex">
             <li><%= link_to 'マイページ', mypage_path %></li>
+            <li><%= link_to '問い合わせ', new_contact_path %></li>
             <li><%= link_to '作品を登録', new_listing_work_path %></li>
             <li><%= link_to '作品を依頼', new_order_work_path %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :get %></li>

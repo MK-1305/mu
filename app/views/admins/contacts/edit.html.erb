@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <h2>お問い合わせ内容</h2>
+        <%= form_for @contact, url: admins_contact_path do |f| %>
+            <h3>顧客名</h3>
+            <%= @contact.user.name %>さん
+            <h3>問い合わせ日</h3>
+            <%= @contact.created_at.strftime("%Y年%m月%d日 ") %>
+            <h3>タイトル</h3>
+            <%= @contact.title %>
+            <h3>問い合わせ内容</h3>
+            <%= @contact.body %>
+            <h3>返信</h3>
+            <%= f.text_area :reply, class:"form-control", placeholder: "返信内容" %>
+            <%= f.submit "送信" %>
+        <% end %>
+    </div>
+  </div>
+</div>

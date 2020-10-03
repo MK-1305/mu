@@ -26,7 +26,7 @@ class Users::ListingWorksController < ApplicationController
 		@listing_work = ListingWork.find(params[:id])
     	respond_to do |format|
       		if @listing_work.update(listing_work_params) && @listing_work.video.recreate_versions!
-        		format.html { redirect_to mypage_path, notice: '登録商品を更新しました' }
+        		format.html { redirect_to mypage_path(current_user), notice: '登録商品を更新しました' }
         		format.json { head :no_content }
       		else
         		format.html { render action: 'edit' }

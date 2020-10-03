@@ -1,0 +1,25 @@
+<h2>問い合わせ一覧</h2>
+<table>
+    <tbody>
+        <% @users.each do |user| %>
+            <% user.contacts.each do |contact| %>
+              <tr>
+                  <th>ユーザー名</th>
+                  <td><%= contact.user.name %><%= user.name %></td>
+              </tr>
+              <tr>
+                  <th>問い合わせタイトル</th>
+                  <td><%= contact.title %></td>
+              </tr>
+              <tr>
+                  <th>受信日</th>
+                  <td><%= contact.created_at.strftime("%Y年%m月%d日 ") %></td>
+              </tr>
+              <tr>
+                  <td><%= link_to "返信", edit_admins_contact_path(contact),class: "btn btn-primary" %></td>
+                  <td><%= link_to "削除", admins_contact_path(contact), class: "btn btn-danger",method: :delete %></td>
+               </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>

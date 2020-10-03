@@ -1,0 +1,14 @@
+<div class="container">
+  <%= link_to "<<back index", rooms_path %>
+  <h1><%= "Chat Room #{@room.id}" %></h1>
+  <h4 class="border"><%= "Your Mail Address: #{current_user&.email}" %></h4>
+  <div id="messages", data-room_id="<%= @room.id %>">
+    <%= render @messages %>
+  </div>
+  <div class="input">
+    <form>
+      <label>post</label>
+      <input type="text" data-behavior="room_speaker">
+    </form>
+  </div>
+</div>

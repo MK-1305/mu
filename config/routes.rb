@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   devise_for :admins, :controllers => {
   :sessions => 'admins/sessions'
 }
@@ -7,6 +8,7 @@ namespace :admins do
  resources :order_genres, only: [:index, :create, :edit, :update]
  resources :users, only: [:index, :show, :edit, :update]
  resources :orders, only: [:index, :show]
+ resources :contacts
 end
 
   devise_for :users, :controllers => {
@@ -30,7 +32,8 @@ scope module: :users do
  get 'accept/thanks' => 'accepts#thanks'
  resources :listing_works
  resources :orders, only: [:create, :show, :index]
- resources :chats, only: [:index, :show]
+ resources :rooms, only: [:index, :show, :create]
+ resources :contacts
  resources :order_works do
   resources :proposals, only: [:index, :create, :destroy,]
  end
