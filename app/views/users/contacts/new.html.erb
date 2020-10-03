@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <% if @contact.errors.any? %>
+            <%= @contact.errors.count %>件のエラー。
+            <% @contact.errors.full_messages.each do |message| %>
+              <%= message %>。
+            <% end %>
+      <% end %>
+      <h2 class="contact-title">お問い合わせフォーム</h2>
+      <%= form_for @contact, url: contacts_path do |f| %>
+          <%= f.label :タイトル %>
+              <%= f.text_field :title, class:"form-control" %>
+          <%= f.label :内容 %>
+              <%= f.text_field :body, class:"form-control" %>
+          <%= f.submit "送信" %>
+      <% end %>
+    </div>
+  </div>
+</div>
