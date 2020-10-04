@@ -73,6 +73,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem 'ruby-sox'
+gem 'webpacker', github: "rails/webpacker"
 gem 'dotenv-rails', groups: [:production, :development]
 
 group :production, :development do
