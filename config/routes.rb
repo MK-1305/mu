@@ -34,6 +34,7 @@ scope module: :users do
  resources :orders, only: [:create, :show, :index]
  resources :rooms, only: [:index, :show, :create]
  resources :contacts
+ resources :reviews, only: [:new, :create]
  resources :order_works do
   resources :proposals, only: [:index, :create, :destroy,]
  end

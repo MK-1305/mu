@@ -12,6 +12,10 @@
           <th>メールで取引を始めよう！</th>
           <td><%= order.listing_work.user.email %></td>
         </tr>
+        <tr>
+          <th></th>
+          <td>評価は<%= link_to "こちら", new_review_path %>から</td>
+        </tr>
        </table>
       <% end %>
     </div>

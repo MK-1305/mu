@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :proposals, dependent: :destroy
   has_many :accepts
+  has_many :reviews
 
   mount_uploader :profile_image, ImageUploader
 
