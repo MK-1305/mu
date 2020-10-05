@@ -1,0 +1,27 @@
+<h2><%= @listing_work %>に対しての評価</h2>
+<%= form_with(model: @review, local: true) do |f| %>
+	<table>
+		<tr>
+			<th><%= f.label :title, "タイトル" %></th>
+	    	<td><%= f.text_field :title %></td>
+	    </tr>
+	    <tr>
+	    	<th><%= f.label :body, "本文" %></th>
+	    	<td><%= f.text_area :body %></td>
+	    </tr>
+	    <tr>
+	    	<th><%= f.label :rate, "評価" %></th>
+	    	<td><%= f.hidden_field :rate, id: :review_star %></td>
+	    </tr>
+	</table>
+<% end %>
+
+javascript:
+ $('#star').raty({
+   size: 36,
+   starOff: "#{asset_path('star-off.png')}",
+   starOn: "#{asset_path('star-on.png')}",
+   starHalf: "#{asset_path('star-half.png')}",
+   scoreName: 'review[rate]', # reviewカラムに保存するので忘れないように
+   half: true, # ★の半分の入力を行う
+ });
