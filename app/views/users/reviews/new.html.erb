@@ -1,4 +1,15 @@
-<h2><%= @listing_work %>に対しての評価</h2>
+"javascript:
+ $('#star').raty({
+   size: 36,
+   starOff: "#{asset_path('star-off.png')}",
+   starOn: "#{asset_path('star-on.png')}",
+   starHalf: "#{asset_path('star-half.png')}",
+   scoreName: 'review[rate]',
+   half: true,
+ });"
+
+
+<h2><%= @listing_work.name %>に対しての評価</h2>
 <%= form_with(model: @review, local: true) do |f| %>
 	<table>
 		<tr>
@@ -16,12 +27,6 @@
 	</table>
 <% end %>
 
-javascript:
- $('#star').raty({
-   size: 36,
-   starOff: "#{asset_path('star-off.png')}",
-   starOn: "#{asset_path('star-on.png')}",
-   starHalf: "#{asset_path('star-half.png')}",
-   scoreName: 'review[rate]', # reviewカラムに保存するので忘れないように
-   half: true, # ★の半分の入力を行う
- });
+
+
+
