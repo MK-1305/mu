@@ -2,6 +2,7 @@ class Users::ReviewsController < ApplicationController
 
 	def new
 		@review = Review.new
+		@listing_work = ListingWork.find(params[:listing_work_id])
 	end
 
 	def create
@@ -14,4 +15,5 @@ class Users::ReviewsController < ApplicationController
 
 	def review_params
 		params.require(:review).permit(:title, :body, :rate)
+	end
 end

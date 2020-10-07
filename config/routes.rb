@@ -30,11 +30,12 @@ scope module: :users do
  get 'order_work/:order_work_id/proposals' => 'proposals#order_proposal', as: 'order_proposals'
  get 'proposal/:proposal_id/accept' => 'accepts#new', as: 'new_accept'
  get 'accept/thanks' => 'accepts#thanks'
+ get ':listing_work_id/review/new' => 'reviews#new', as: 'new_review'
  resources :listing_works
  resources :orders, only: [:create, :show, :index]
  resources :rooms, only: [:index, :show, :create]
  resources :contacts
- resources :reviews, only: [:new, :create]
+ resources :reviews, only: [:create]
  resources :order_works do
   resources :proposals, only: [:index, :create, :destroy,]
  end
